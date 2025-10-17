@@ -12,3 +12,25 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
 }
+
+.button {
+  background-color: var(--yellow-color);
+  color: var(--background-color);
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 25px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #efb004;
+}
+
+.input {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid var(--yellow-color);
+  padding: 10px 10px;
+  width: 100%;
+}
