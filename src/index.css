@@ -1,0 +1,14 @@
+:root {
+  --background-color: #faf5e4;
+  --yellow-color: #f8b400;
+  --green-color: #2c786c;
+  --text-color: #004445;
+}
+
+body {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
