@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 const NavigationMenu = () => {
   return (
     <div className={styles.app}>
-      <div className={styles.navMenu}>
+      <div className={styles["nav-menu"]}>
         <p className={styles.name}>First name and last name</p>
         <p className={styles.email}>e-mail</p>
         <nav className={styles.nav}>

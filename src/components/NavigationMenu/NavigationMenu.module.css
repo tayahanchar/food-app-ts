@@ -5,9 +5,8 @@
   gap: 20px;
 }
 
-.navMenu {
-  border-right: 0.5px solid #004445;
-  position: relative;
+.nav-menu {
+  border-right: 0.5px solid var(--text-color);
   min-width: 300px;
   padding: 50px;
   display: flex;
@@ -42,4 +41,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.link:hover {
+  color: var(--green-color);
 }
