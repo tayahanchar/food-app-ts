@@ -5,6 +5,16 @@
   --text-color: #004445;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   font-family: "Titillium Web", sans-serif;
   font-weight: 500;
@@ -33,4 +43,11 @@ body {
   border: 1px solid var(--yellow-color);
   padding: 10px 10px;
   width: 100%;
+}
+
+.button-end {
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+  right: 50px;
 }
