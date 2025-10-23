@@ -43,6 +43,13 @@
   gap: 10px;
 }
 
+.link-active {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--yellow-color);
+}
+
 .link:hover {
   color: var(--green-color);
 }
