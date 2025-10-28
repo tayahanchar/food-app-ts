@@ -1,3 +1,4 @@
+import Card from "../../components/Card/Card";
 import Title from "../../components/Title/Title";
 import styles from "./Main.module.css";
 
@@ -20,6 +21,16 @@ const Main = () => {
           />
         </div>
       </div>
+      <section>
+        <div className={styles.list}>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </section>
     </div>
   );
 };

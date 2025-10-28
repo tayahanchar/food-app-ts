@@ -1,0 +1,55 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(215, 192, 161, 0.154);
+  border-radius: 20px;
+}
+
+.img {
+  width: 400px;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 20px;
+}
+
+.description {
+  padding: 20px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--green-color);
+}
+
+.price {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--green-color);
+  color: var(--background-color);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.rate {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  top: 15px;
+  right: 15px;
+  background-color: var(--green-color);
+  padding: 2px 5px;
+  border-radius: 10px;
+  color: var(--background-color);
+  font-weight: 700;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+}
