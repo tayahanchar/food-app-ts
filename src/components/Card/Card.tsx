@@ -1,3 +1,4 @@
+import Button from "../Button/Button";
 import styles from "./Card.module.css";
 
 const Card = () => {
@@ -13,6 +14,10 @@ const Card = () => {
         <p className={styles.title}>Title</p>
         <p>Description</p>
       </div>
+      <Button className="button button-right">
+        Add
+        <img className={styles.bag} src="./bag.svg" alt="bag" />
+      </Button>
     </div>
   );
 };
