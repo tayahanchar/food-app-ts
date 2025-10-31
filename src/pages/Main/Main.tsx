@@ -23,12 +23,12 @@ const Main = () => {
       </div>
       <section>
         <div className={styles.list}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <Card id="2" />
+          <Card id="1" />
+          <Card id="13" />
+          <Card id="1e" />
+          <Card id="12" />
+          <Card id="12w" />
         </div>
       </section>
     </div>
