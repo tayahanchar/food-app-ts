@@ -5,16 +5,21 @@ import ProductsList from "../../components/ProductsList/ProductsList";
 import { URL } from "../../constants";
 import axios from "axios";
 import type { CardProps } from "../../components/Card/Card";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 const Main = () => {
   const [productsList, setProductsList] = useState<CardProps[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function fetchProducts() {
+    setIsLoading(true);
     try {
       const { data } = await axios.get<CardProps[]>(`${URL}/products`);
       setProductsList(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   }
 
@@ -40,7 +45,8 @@ const Main = () => {
           />
         </div>
       </div>
-      <ProductsList productsList={productsList} />
+      {!isLoading && <ProductsList productsList={productsList} />}
+      {isLoading && <LoadingSpinner />}
     </div>
   );
 };
