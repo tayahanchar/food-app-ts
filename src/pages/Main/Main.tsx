@@ -1,8 +1,21 @@
-import Card from "../../components/Card/Card";
+import { useEffect, useState } from "react";
 import Title from "../../components/Title/Title";
 import styles from "./Main.module.css";
+import ProductsList from "../../components/ProductsList/ProductsList";
 
 const Main = () => {
+  const [productsList, setProductsList] = useState([]);
+
+  useEffect(() => {
+    (async function () {
+      const response = await fetch(
+        "https://purpleschool.ru/pizza-api-demo/products"
+      );
+      const result = await response.json();
+      setProductsList(result);
+    })();
+  }, []);
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
@@ -21,16 +34,7 @@ const Main = () => {
           />
         </div>
       </div>
-      <section>
-        <div className={styles.list}>
-          <Card id="2" />
-          <Card id="1" />
-          <Card id="13" />
-          <Card id="1e" />
-          <Card id="12" />
-          <Card id="12w" />
-        </div>
-      </section>
+      <ProductsList productsList={productsList} />
     </div>
   );
 };
