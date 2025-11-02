@@ -2,18 +2,23 @@ import { useEffect, useState } from "react";
 import Title from "../../components/Title/Title";
 import styles from "./Main.module.css";
 import ProductsList from "../../components/ProductsList/ProductsList";
+import { URL } from "../../constants";
 
 const Main = () => {
   const [productsList, setProductsList] = useState([]);
 
-  useEffect(() => {
-    (async function () {
-      const response = await fetch(
-        "https://purpleschool.ru/pizza-api-demo/products"
-      );
+  async function fetchProducts() {
+    try {
+      const response = await fetch(`${URL}/products`);
       const result = await response.json();
       setProductsList(result);
-    })();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchProducts();
   }, []);
 
   return (
