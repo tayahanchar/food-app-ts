@@ -3,15 +3,16 @@ import Title from "../../components/Title/Title";
 import styles from "./Main.module.css";
 import ProductsList from "../../components/ProductsList/ProductsList";
 import { URL } from "../../constants";
+import axios from "axios";
+import type { CardProps } from "../../components/Card/Card";
 
 const Main = () => {
-  const [productsList, setProductsList] = useState([]);
+  const [productsList, setProductsList] = useState<CardProps[]>([]);
 
   async function fetchProducts() {
     try {
-      const response = await fetch(`${URL}/products`);
-      const result = await response.json();
-      setProductsList(result);
+      const { data } = await axios.get<CardProps[]>(`${URL}/products`);
+      setProductsList(data);
     } catch (error) {
       console.log(error);
     }
