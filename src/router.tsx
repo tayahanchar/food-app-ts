@@ -1,10 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "./pages/Main/Main";
-import Cart from "./pages/Cart/Cart";
 import NavigationMenu from "./components/NavigationMenu/NavigationMenu";
 import Product from "./components/Product/Product";
 import axios from "axios";
 import { URL } from "./constants";
+import { lazy, Suspense } from "react";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+
+const LazyCart = lazy(() => import("./pages/Cart/Cart"));
+const LazyMain = lazy(() => import("./pages/Main/Main"));
 
 export const router = createBrowserRouter([
   {
@@ -13,11 +16,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Main />,
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <LazyMain />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <LazyCart />
+          </Suspense>
+        ),
       },
       {
         path: "/product/:id",
