@@ -3,6 +3,8 @@ import Main from "./pages/Main/Main";
 import Cart from "./pages/Cart/Cart";
 import NavigationMenu from "./components/NavigationMenu/NavigationMenu";
 import Product from "./components/Product/Product";
+import axios from "axios";
+import { URL } from "./constants";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,11 @@ export const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <Product />,
+        loader: async ({ params }) => {
+          const { data } = await axios.get(`${URL}/products/${params.id}`);
+          return data;
+        },
+        errorElement: <div>Something went wrong!</div>,
       },
     ],
   },

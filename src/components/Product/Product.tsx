@@ -1,10 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import type { CardProps } from "../Card/Card";
 
 const Product = () => {
-  const { id } = useParams();
+  const data = useLoaderData() as CardProps;
+
+  console.log(data);
   return (
     <div>
-      <p>Product {id}</p>
+      <p>Product {data.name} </p>
     </div>
   );
 };
