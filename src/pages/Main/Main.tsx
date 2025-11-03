@@ -10,6 +10,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 const Main = () => {
   const [productsList, setProductsList] = useState<CardProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   async function fetchProducts() {
     setIsLoading(true);
@@ -17,8 +18,9 @@ const Main = () => {
       const { data } = await axios.get<CardProps[]>(`${URL}/products`);
       setProductsList(data);
       setIsLoading(false);
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      console.log(e);
+      setIsError(true);
       setIsLoading(false);
     }
   }
@@ -47,6 +49,7 @@ const Main = () => {
       </div>
       {!isLoading && <ProductsList productsList={productsList} />}
       {isLoading && <LoadingSpinner />}
+      {isError && <div>Something went wrong</div>}
     </div>
   );
 };
