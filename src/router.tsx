@@ -6,6 +6,8 @@ import { URL } from "./constants";
 import { lazy, Suspense } from "react";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import Auth from "./components/Auth/Auth";
+import Login from "./components/Login/Login";
+import Registration from "./components/Registration/Registration";
 
 const LazyCart = lazy(() => import("./pages/Cart/Cart"));
 const LazyMain = lazy(() => import("./pages/Main/Main"));
@@ -48,11 +50,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "login",
-        element: <div>login</div>,
+        element: <Login />,
       },
       {
-        path: "register",
-        element: <div>register</div>,
+        path: "registration",
+        element: <Registration />,
       },
     ],
   },
