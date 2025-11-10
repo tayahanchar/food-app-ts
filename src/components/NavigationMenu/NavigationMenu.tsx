@@ -22,7 +22,7 @@ const NavigationMenu = () => {
             className={({ isActive }) =>
               isActive ? styles["link-active"] : styles.link
             }
-            to="/Cart"
+            to="/cart"
           >
             <img className={styles.svg} src="./cart.svg" alt="menu" />
             Cart

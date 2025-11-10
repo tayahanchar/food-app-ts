@@ -5,6 +5,7 @@ import axios from "axios";
 import { URL } from "./constants";
 import { lazy, Suspense } from "react";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import Auth from "./components/Auth/Auth";
 
 const LazyCart = lazy(() => import("./pages/Cart/Cart"));
 const LazyMain = lazy(() => import("./pages/Main/Main"));
@@ -38,6 +39,20 @@ export const router = createBrowserRouter([
           return data;
         },
         errorElement: <div>Something went wrong!</div>,
+      },
+    ],
+  },
+  {
+    path: "auth",
+    element: <Auth />,
+    children: [
+      {
+        path: "login",
+        element: <div>login</div>,
+      },
+      {
+        path: "register",
+        element: <div>register</div>,
       },
     ],
   },
