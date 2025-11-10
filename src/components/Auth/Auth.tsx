@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
+import styles from "./Auth.module.css";
 
 const Auth = () => {
   return (
-    <div>
-      <p>auth</p>
+    <div className={styles.auth}>
+      <img className={styles.logo} src="../plant.png" alt="logo" />
       <Outlet />
     </div>
   );

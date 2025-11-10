@@ -1,0 +1,10 @@
+.auth {
+  width: 800px;
+  margin: 50px auto;
+  display: flex;
+  gap: 50px;
+}
+
+.logo {
+  width: 600px;
+}
