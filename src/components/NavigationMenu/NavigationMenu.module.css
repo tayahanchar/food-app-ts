@@ -12,6 +12,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background-image: url(../../../public/green-leaf-plant.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .nav {

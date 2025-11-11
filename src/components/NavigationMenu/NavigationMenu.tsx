@@ -16,7 +16,7 @@ const NavigationMenu = () => {
             to="/"
           >
             <img className={styles.svg} src="./menu.svg" alt="menu" />
-            Main
+            Menu
           </NavLink>
           <NavLink
             className={({ isActive }) =>
