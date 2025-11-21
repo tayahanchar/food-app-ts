@@ -6,6 +6,7 @@ import { URL } from "../../constants";
 import axios from "axios";
 import type { CardProps } from "../../components/Card/Card";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import { Input } from "../../components/Input/Input";
 
 const Main = () => {
   const [productsList, setProductsList] = useState<CardProps[]>([]);
@@ -39,7 +40,7 @@ const Main = () => {
             src="./search.svg"
             alt="search"
           />
-          <input
+          <Input
             name="search"
             type="string"
             className={styles.input}
