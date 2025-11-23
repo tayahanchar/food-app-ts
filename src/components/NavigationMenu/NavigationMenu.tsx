@@ -1,8 +1,16 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import styles from "./NavigationMenu.module.css";
 import Button from "../Button/Button";
 
 const NavigationMenu = () => {
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    console.log(";;");
+    localStorage.setItem("token", "");
+    navigate("/auth/login");
+  };
+
   return (
     <div className={styles.app}>
       <div className={styles["nav-menu"]}>
@@ -28,7 +36,9 @@ const NavigationMenu = () => {
             Cart
           </NavLink>
         </nav>
-        <Button className={"button button-end"}>Log out</Button>
+        <Button onClick={logOut} className={"button button-end"}>
+          Log out
+        </Button>
       </div>
       <Outlet />
     </div>

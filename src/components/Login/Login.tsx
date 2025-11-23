@@ -5,6 +5,7 @@ import Title from "../Title/Title";
 import styles from "./Login.module.css";
 import axios, { AxiosError } from "axios";
 import { URL } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 type FormT = {
   email: string;
@@ -12,7 +13,7 @@ type FormT = {
 };
 
 interface LoginResponse {
-  token: string;
+  access_token: string;
 }
 
 const Login = () => {
@@ -22,6 +23,8 @@ const Login = () => {
   });
 
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const changeForm = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => {
@@ -41,7 +44,8 @@ const Login = () => {
         form
       );
       setError("");
-      console.log(data);
+      localStorage.setItem("token", data.access_token);
+      navigate("/");
     } catch (error) {
       const err = error as AxiosError;
       if (err.message) {

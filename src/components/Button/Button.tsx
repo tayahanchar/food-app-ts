@@ -4,8 +4,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className: string;
 }
 
-const Button: FC<ButtonProps> = ({ children, className }) => {
-  return <button className={className}>{children}</button>;
+const Button: FC<ButtonProps> = ({ children, className, onClick }) => {
+  return (
+    <button onClick={onClick} className={className}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
