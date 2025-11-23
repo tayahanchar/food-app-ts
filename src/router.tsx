@@ -8,6 +8,7 @@ import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import Auth from "./components/Auth/Auth";
 import Login from "./components/Login/Login";
 import Registration from "./components/Registration/Registration";
+import RequereAuth from "./helpers/RequereAuth";
 
 const LazyCart = lazy(() => import("./pages/Cart/Cart"));
 const LazyMain = lazy(() => import("./pages/Main/Main"));
@@ -15,7 +16,11 @@ const LazyMain = lazy(() => import("./pages/Main/Main"));
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavigationMenu />,
+    element: (
+      <RequereAuth>
+        <NavigationMenu />
+      </RequereAuth>
+    ),
     children: [
       {
         path: "/",
