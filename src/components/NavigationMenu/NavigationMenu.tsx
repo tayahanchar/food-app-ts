@@ -6,7 +6,6 @@ const NavigationMenu = () => {
   const navigate = useNavigate();
 
   const logOut = () => {
-    console.log(";;");
     localStorage.setItem("token", "");
     navigate("/auth/login");
   };
