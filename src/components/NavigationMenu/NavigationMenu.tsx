@@ -1,12 +1,14 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import styles from "./NavigationMenu.module.css";
 import Button from "../Button/Button";
+import { deleteToken } from "../../store/user";
+import store from "../../store/store";
 
 const NavigationMenu = () => {
   const navigate = useNavigate();
 
   const logOut = () => {
-    localStorage.setItem("token", "");
+    store.dispatch(deleteToken());
     navigate("/auth/login");
   };
 

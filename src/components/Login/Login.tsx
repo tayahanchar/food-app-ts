@@ -6,6 +6,8 @@ import styles from "./Login.module.css";
 import axios, { AxiosError } from "axios";
 import { URL } from "../../constants";
 import { useNavigate } from "react-router-dom";
+import { addToken } from "../../store/user";
+import store from "../../store/store";
 
 type FormT = {
   email: string;
@@ -44,7 +46,7 @@ const Login = () => {
         form
       );
       setError("");
-      localStorage.setItem("token", data.access_token);
+      store.dispatch(addToken(data.access_token));
       navigate("/");
     } catch (error) {
       const err = error as AxiosError;
