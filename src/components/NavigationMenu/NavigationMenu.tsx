@@ -10,6 +10,7 @@ const NavigationMenu = () => {
 
   const logOut = () => {
     dispatch(deleteToken());
+    localStorage.removeItem("userToken");
     navigate("/auth/login");
   };
 

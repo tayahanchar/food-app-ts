@@ -49,6 +49,7 @@ const Login = () => {
       );
       setError("");
       dispatch(addToken(data.access_token));
+      localStorage.setItem("userToken", data.access_token);
       navigate("/");
     } catch (error) {
       const err = error as AxiosError;
