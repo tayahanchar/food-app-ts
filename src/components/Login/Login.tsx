@@ -7,7 +7,7 @@ import axios, { AxiosError } from "axios";
 import { URL } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { addToken } from "../../store/user";
-import store from "../../store/store";
+import { useDispatch } from "react-redux";
 
 type FormT = {
   email: string;
@@ -23,6 +23,8 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const dispatch = useDispatch();
 
   const [error, setError] = useState("");
 
@@ -46,7 +48,7 @@ const Login = () => {
         form
       );
       setError("");
-      store.dispatch(addToken(data.access_token));
+      dispatch(addToken(data.access_token));
       navigate("/");
     } catch (error) {
       const err = error as AxiosError;

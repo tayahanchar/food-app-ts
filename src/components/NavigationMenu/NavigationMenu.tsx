@@ -2,13 +2,14 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import styles from "./NavigationMenu.module.css";
 import Button from "../Button/Button";
 import { deleteToken } from "../../store/user";
-import store from "../../store/store";
+import { useDispatch } from "react-redux";
 
 const NavigationMenu = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const logOut = () => {
-    store.dispatch(deleteToken());
+    dispatch(deleteToken());
     navigate("/auth/login");
   };
 

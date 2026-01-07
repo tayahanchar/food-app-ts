@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import type store from "./store";
 
 interface UserState {
   token: string | null;
@@ -24,4 +25,6 @@ export const userSlice = createSlice({
 export const { addToken, deleteToken } = userSlice.actions;
 export default userSlice.reducer;
 
-export const selectUserToken = (state) => state.user.token;
+export type RootState = ReturnType<typeof store.getState>;
+
+export const selectUserToken = (state: RootState) => state.user.token;
